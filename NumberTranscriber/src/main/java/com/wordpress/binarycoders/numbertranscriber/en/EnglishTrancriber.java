@@ -4,6 +4,7 @@ import com.wordpress.binarycoders.numbertranscriber.NumberLiterals;
 import com.wordpress.binarycoders.numbertranscriber.Transcriber;
 import com.wordpress.binarycoders.numbertranscriber.exception.OutOfRangeException;
 import com.wordpress.binarycoders.numbertranscriber.utils.Conversion;
+import org.apache.log4j.Logger;
 
 /**
  * English trancriber
@@ -11,6 +12,8 @@ import com.wordpress.binarycoders.numbertranscriber.utils.Conversion;
  * @author fjavierm
  */
 public class EnglishTrancriber implements Transcriber {
+
+    final static Logger logger = Logger.getLogger(EnglishTrancriber.class);
 
     private final static long MIN_VALID_RANGE = 1;
     private final static long MAX_VALID_RANGE = 999999999;
@@ -33,6 +36,8 @@ public class EnglishTrancriber implements Transcriber {
      */
     @Override
     public String numberTranscription(long number) throws OutOfRangeException {
+
+        logger.info(String.format("Processing number %d", number));
 
         checkValidRange(number);
 

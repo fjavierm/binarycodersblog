@@ -1,6 +1,7 @@
 package com.wordpress.binarycoders.numbertranscriber;
 
 import com.wordpress.binarycoders.numbertranscriber.en.EnglishTrancriber;
+import org.apache.log4j.Logger;
 
 /**
  * Transcriber's parametrized factory
@@ -9,11 +10,15 @@ import com.wordpress.binarycoders.numbertranscriber.en.EnglishTrancriber;
  */
 public class TranscriberSelector {
 
+    final static Logger logger = Logger.getLogger(TranscriberSelector.class);
+
     private final static String TRANCRIBER_LANGUAGE_UNNAVAILABLE
             = "Transcriber is not available in this language.";
 
     public static Transcriber createTranscriber(AvailableLanguages language)
             throws UnsupportedOperationException {
+
+        logger.info(String.format("Creating trancriber for language %s", language.name()));
 
         Transcriber trancriber = null;
 
