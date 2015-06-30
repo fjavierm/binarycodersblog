@@ -1,24 +1,78 @@
 package com.wordpress.binarycoders.numbertranscriber.en;
 
-import com.wordpress.binarycoders.numbertranscriber.AvailableLanguages;
-import com.wordpress.binarycoders.numbertranscriber.interfaces.Transcriber;
-import com.wordpress.binarycoders.numbertranscriber.TranscriberSelector;
 import com.wordpress.binarycoders.numbertranscriber.exception.OutOfRangeException;
+import com.wordpress.binarycoders.numbertranscriber.interfaces.Transcriber;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.runners.MockitoJUnitRunner;
 
 /**
  *
  * @author fjavierm
  */
+@RunWith(MockitoJUnitRunner.class)
 public class EnglishTrancriberTest {
 
-    private Transcriber transcriber;
+    private static final String[] UNITS = {
+        "",
+        "one",
+        "two",
+        "three",
+        "four",
+        "five",
+        "six",
+        "seven",
+        "eight",
+        "nine",
+        "ten",
+        "eleven",
+        "twelve",
+        "thirteen",
+        "fourteen",
+        "fifteen",
+        "sixteen",
+        "seventeen",
+        "eighteen",
+        "nineteen"
+    };
+
+    private static final String[] TENS = {
+        "",
+        "",
+        "twenty",
+        "thirty",
+        "forty",
+        "fifty",
+        "sixty",
+        "seventy",
+        "eighty",
+        "ninety"
+    };
+
+    private static final String[] GROUPS = {"",
+        "thousand",
+        "million"
+    };
+
+    private static final String HUNDRED = "hundred";
+
+    @Mock
+    EnglishNumberLiterals literals;
+
+    Transcriber transcriber;
 
     @Before
     public void setUp() {
-        transcriber = TranscriberSelector.createTranscriber(AvailableLanguages.ENGLISH);
+        transcriber = new EnglishTrancriber(literals);
+
+        Mockito.when(literals.provideUnits()).thenReturn(UNITS);
+        Mockito.when(literals.provideTens()).thenReturn(TENS);
+        Mockito.when(literals.provideHundred()).thenReturn(HUNDRED);
+        Mockito.when(literals.provideGroups()).thenReturn(GROUPS);
     }
 
     @Test(expected = OutOfRangeException.class)

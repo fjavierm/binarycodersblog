@@ -18,9 +18,9 @@ public class EnglishTrancriber implements Transcriber {
 
     private final NumberLiterals literals;
 
-    public EnglishTrancriber() {
+    public EnglishTrancriber(EnglishNumberLiterals englishLiterals) {
 
-        literals = new EnglishNumberLiterals();
+        literals = englishLiterals;
     }
 
     /**

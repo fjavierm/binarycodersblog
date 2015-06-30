@@ -1,5 +1,6 @@
 package com.wordpress.binarycoders.numbertranscriber;
 
+import com.wordpress.binarycoders.numbertranscriber.en.EnglishNumberLiterals;
 import com.wordpress.binarycoders.numbertranscriber.en.EnglishTrancriber;
 import com.wordpress.binarycoders.numbertranscriber.interfaces.Transcriber;
 import org.apache.log4j.Logger;
@@ -25,7 +26,7 @@ public class TranscriberSelector {
 
         switch (language) {
             case ENGLISH:
-                trancriber = new EnglishTrancriber();
+                trancriber = new EnglishTrancriber(new EnglishNumberLiterals());
                 break;
 
             default:
