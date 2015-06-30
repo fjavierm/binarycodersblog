@@ -1,4 +1,4 @@
-package com.wordpress.binarycoders.numbertranscriber;
+package com.wordpress.binarycoders.numbertranscriber.interfaces;
 
 /**
  * Interface with the methods that any new language implementation should have

@@ -1,8 +1,9 @@
 package com.wordpress.binarycoders.numbertranscriber.en;
 
-import com.wordpress.binarycoders.numbertranscriber.NumberLiterals;
-import com.wordpress.binarycoders.numbertranscriber.Transcriber;
+import com.wordpress.binarycoders.numbertranscriber.Configuration;
 import com.wordpress.binarycoders.numbertranscriber.exception.OutOfRangeException;
+import com.wordpress.binarycoders.numbertranscriber.interfaces.NumberLiterals;
+import com.wordpress.binarycoders.numbertranscriber.interfaces.Transcriber;
 import com.wordpress.binarycoders.numbertranscriber.utils.Conversion;
 import org.apache.log4j.Logger;
 
@@ -14,10 +15,6 @@ import org.apache.log4j.Logger;
 public class EnglishTrancriber implements Transcriber {
 
     final static Logger logger = Logger.getLogger(EnglishTrancriber.class);
-
-    private final static long MIN_VALID_RANGE = 1;
-    private final static long MAX_VALID_RANGE = 999999999;
-    private final static long BASIC_CASES = 20;
 
     private final NumberLiterals literals;
 
@@ -41,7 +38,7 @@ public class EnglishTrancriber implements Transcriber {
 
         checkValidRange(number);
 
-        if (number < BASIC_CASES) {
+        if (number < Configuration.BASIC_CASES) {
             return calculateBasicCases(number);
         }
 
@@ -82,7 +79,7 @@ public class EnglishTrancriber implements Transcriber {
         if (numericNumber / 10 > 0) {
             appendSpace(sb);
 
-            if (numericNumber < BASIC_CASES) {
+            if (numericNumber < Configuration.BASIC_CASES) {
                 sb.append(calculateBasicCases(numericNumber));
             } else {
                 sb.append(literals.provideTens()[numericNumber / 10]);
@@ -120,9 +117,9 @@ public class EnglishTrancriber implements Transcriber {
      */
     private void checkValidRange(long number) throws OutOfRangeException {
 
-        if (number < MIN_VALID_RANGE || number > MAX_VALID_RANGE) {
+        if (number < Configuration.MIN_VALID_RANGE || number > Configuration.MAX_VALID_RANGE) {
             throw new OutOfRangeException("The value is out of the allowed range ["
-                    + MIN_VALID_RANGE + "-" + MAX_VALID_RANGE + "]");
+                    + Configuration.MIN_VALID_RANGE + "-" + Configuration.MAX_VALID_RANGE + "]");
         }
     }
 

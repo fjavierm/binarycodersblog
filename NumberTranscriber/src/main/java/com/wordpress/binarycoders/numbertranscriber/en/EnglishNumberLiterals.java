@@ -1,6 +1,6 @@
 package com.wordpress.binarycoders.numbertranscriber.en;
 
-import com.wordpress.binarycoders.numbertranscriber.NumberLiterals;
+import com.wordpress.binarycoders.numbertranscriber.interfaces.NumberLiterals;
 
 /**
  * Nedded literal for the English version

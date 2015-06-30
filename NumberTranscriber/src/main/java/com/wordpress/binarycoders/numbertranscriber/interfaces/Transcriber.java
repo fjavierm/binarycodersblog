@@ -1,4 +1,4 @@
-package com.wordpress.binarycoders.numbertranscriber;
+package com.wordpress.binarycoders.numbertranscriber.interfaces;
 
 import com.wordpress.binarycoders.numbertranscriber.exception.OutOfRangeException;
 

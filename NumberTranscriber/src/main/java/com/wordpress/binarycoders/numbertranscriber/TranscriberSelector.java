@@ -1,6 +1,7 @@
 package com.wordpress.binarycoders.numbertranscriber;
 
 import com.wordpress.binarycoders.numbertranscriber.en.EnglishTrancriber;
+import com.wordpress.binarycoders.numbertranscriber.interfaces.Transcriber;
 import org.apache.log4j.Logger;
 
 /**

@@ -1,7 +1,7 @@
 package com.wordpress.binarycoders.numbertranscriber.en;
 
 import com.wordpress.binarycoders.numbertranscriber.AvailableLanguages;
-import com.wordpress.binarycoders.numbertranscriber.Transcriber;
+import com.wordpress.binarycoders.numbertranscriber.interfaces.Transcriber;
 import com.wordpress.binarycoders.numbertranscriber.TranscriberSelector;
 import com.wordpress.binarycoders.numbertranscriber.exception.OutOfRangeException;
 import org.junit.Assert;
