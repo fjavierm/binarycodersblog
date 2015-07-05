@@ -16,6 +16,8 @@ Expected result:
 
 * {"identifier":"1", "result":3}
 
+Available methods:
+
 1. addition/exone   -> Basic REST method. It can receive one object.
 2. addition/extwo   -> Asynchronous REST method. It can receive a list of objects.
 3. addition/exthree -> Asynchronous REST method with cache support. It can receive a list of objects.
